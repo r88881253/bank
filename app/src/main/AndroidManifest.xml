@@ -21,6 +21,14 @@
         </activity>
 
         <activity android:name=".GoldPassbookActivity" />
+        <activity
+            android:name=".ChatbotActivity"
+            android:label="@string/title_activity_chatbot">
+        </activity>
+        <activity
+            android:name=".CustServiceActivity"
+            android:label="@string/title_activity_custservice">
+        </activity>
 
     </application>
 

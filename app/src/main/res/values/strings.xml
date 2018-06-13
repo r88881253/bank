@@ -1,3 +1,10 @@
 <resources>
     <string name="app_name">EsunMobileBank</string>
+
+    <string name="title_activity_chatbot">智能客服</string>
+    <string name="title_activity_custservice">客服專線</string>
+
+    <string name="subtitle_creditcard">信用卡業務</string>
+    <string name="subtitle_deposit">存款業務</string>
+    <string name="subtitle_investment">理財業務</string>
 </resources>
