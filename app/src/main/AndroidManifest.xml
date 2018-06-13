@@ -30,6 +30,8 @@
             android:label="@string/title_activity_custservice">
         </activity>
 
+        <activity android:name=".TWDInterestRateActivity"></activity>
+
     </application>
 
 </manifest>

@@ -40,4 +40,11 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
+    public void onclickTWDInterestRate(View view) {
+
+        Bundle bundle = new Bundle();
+        Intent intent = new Intent(this, TWDInterestRateActivity.class);
+        startActivity(intent);
+
+    }
 }

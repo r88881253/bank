@@ -3,6 +3,11 @@
     <color name="colorPrimary">#009d97</color>
     <color name="colorPrimaryDark">#009d97</color>
     <color name="colorAccent">#FF4081</color>
+
     <color name="colorToolbarBackgroud">#E6EDE7</color>
     <color name="colorToolbarText">#009d97</color>
+
+    <color name="colorBackground">#a6d2ac</color>
+    <color name="colorFont">#3b6e40</color>
+
 </resources>
