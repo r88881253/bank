@@ -26,7 +26,7 @@ public class GoldPassbookActivity extends Activity implements HttpTask.ICallback
     }
 
     @Override
-    public void onHttpResult(String jsonData) {
+    public void onHttpResult(int statusCode, String jsonData) {
         Log.e(TAG, "jsonData = " + jsonData);
     }
 }

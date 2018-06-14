@@ -1,0 +1,8 @@
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android" >
+
+    <item
+        android:drawable="@drawable/customer_service_icon_call"
+        android:width="15dp"
+        android:height="15dp"
+        />
+</layer-list >
