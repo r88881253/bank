@@ -11,5 +11,7 @@
     <color name="colorFont">#3b6e40</color>
 
     <color name="colorNotes">#ea433a</color>
+    <color name="colorWordingTextRed">#C7002C</color>
+    <color name="colorItemBackground">#E6E7E8</color>
 
 </resources>

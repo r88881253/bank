@@ -1,161 +1,120 @@
 package com.ibm.esun.esunmobilebank.model;
 
+import com.google.gson.annotations.SerializedName;
+
 import java.io.Serializable;
 
 public class GoldBean implements Serializable {
 
-    private final static String BUY = "Buy";
+    private static final long serialVersionUID = 7457930140883585250L;
 
-    private final static String CURCD = "Curcd";
+    @SerializedName("Buy")
+    private String mBuy;
 
-    private final static String CURRENCY = "Currency";
+    @SerializedName("Curcd")
+    private String mCurcd;
 
-    private final static String CURRENCY_TEXT = "CurrencyText";
+    @SerializedName("Currency")
+    private String mCurrency;
 
-    private final static String DP_DIFF = "DPDiff";
+    @SerializedName("CurrencyText")
+    private String mCurrencyText;
 
-    private final static String GOOD_NAME = "GoodName";
+    @SerializedName("DPDiff")
+    private String mDPDiff;
 
-    private final static String GOOD_NO = "GoodName";
+    @SerializedName("GoodName")
+    private String mGoodName;
 
-    private final static String INFO_DATE_TIME = "InfoDateTime";
+    @SerializedName("GoodNo")
+    private String mGoodNo;
 
-    private final static String SELL = "Sell";
+    @SerializedName("InfoDateTime")
+    private String mInfoDateTime;
 
-    private final static String SELL_T = "SellT";
+    @SerializedName("Sell")
+    private String mSell;
+
+    @SerializedName("SellT")
+    private String mSellT;
+
+    public String getBuy() {
+        return mBuy;
+    }
+
+    public String getCurcd() {
+        return mCurcd;
+    }
+
+    public String getCurrency() {
+        return mCurrency;
+    }
+
+    public String getCurrencyText() {
+        return mCurrencyText;
+    }
+
+    public String getDPDiff() {
+        return mDPDiff;
+    }
+
+    public String getGoodName() {
+        return mGoodName;
+    }
+
+    public String getGoodNo() {
+        return mGoodNo;
+    }
+
+    public String getInfoDateTime() {
+        return mInfoDateTime;
+    }
+
+    public String getSell() {
+        return mSell;
+    }
+
+    public String getSellT() {
+        return mSellT;
+    }
+
+    public void setBuy(String buy) {
+        mBuy = buy;
+    }
+
+    public void setCurcd(String curcd) {
+        mCurcd = curcd;
+    }
+
+    public void setCurrency(String currency) {
+        mCurrency = currency;
+    }
+
+    public void setCurrencyText(String currencyText) {
+        mCurrencyText = currencyText;
+    }
+
+    public void setDPDiff(String dpDiff) {
+        mDPDiff = dpDiff;
+    }
+
+    public void setGoodName(String goodName) {
+        mGoodName = goodName;
+    }
+
+    public void setGoodNo(String goodNo) {
+        mGoodNo = goodNo;
+    }
+
+    public void setInfoDateTime(String infoDateTime) {
+        mInfoDateTime = infoDateTime;
+    }
+
+    public void setSell(String sell) {
+        mSell = sell;
+    }
+
+    public void setSellT(String sellT) {
+        mSellT = sellT;
+    }
 }
-
-
-/*
-
-1.台幣存放款利率
-
-{
-   "UpdateTime":"2018/06/12",
-   "depositeInterestRateList":{
-      "DepositeRate":[
-         {
-            "fRate":"不計息",
-            "mRate":"不計息",
-            "title":"支票存款"
-         },
-         {
-            "fRate":"-",
-            "mRate":"0.010",
-            "title":"活期存款"
-         }
-      ]
-   },
-   "loanInterestRateList":{
-      "LoanRate":[
-         {
-            "Rate":"15.000",
-            "title":"信用卡最高利率"
-         },
-         {
-            "Rate":"14.880",
-            "title":"信用卡次高利率"
-         }
-      ]
-   }
-}
-
-
-
-
-
-
-2.黃金存摺總覽
-
-{
-   "GoldPrice":[
-      {
-         "Buy":"1200000.00",
-         "Curcd":"00",
-         "Currency":"NTD",
-         "CurrencyText":"新台幣",
-         "DPDiff":"6809.00",
-         "GoodName":"黃金條塊1公斤",
-         "GoodNo":"GB0010001000",
-         "InfoDateTime":"2017-01-06T13:55:00",
-         "Sell":"1221809.00",
-         "SellT":"0.00"
-      },
-      {
-         "Buy":"600000.00",
-         "Curcd":"00",
-         "Currency":"NTD",
-         "CurrencyText":"新台幣",
-         "DPDiff":"4011.00",
-         "GoodName":"黃金條塊500克",
-         "GoodNo":"GB0010002000",
-         "InfoDateTime":"2017-01-06T13:55:00",
-         "Sell":"611511.00",
-         "SellT":"0.00"
-      },
-      {
-         "Buy":"300000.00",
-         "Curcd":"00",
-         "Currency":"NTD",
-         "CurrencyText":"新台幣",
-         "DPDiff":"2309.00",
-         "GoodName":"黃金條塊250克",
-         "GoodNo":"GB0010003000",
-         "InfoDateTime":"2017-01-06T13:55:00",
-         "Sell":"306059.00",
-         "SellT":"0.00"
-      }
-   ]
-}
-
-
-
-
-
-3.玉山e理財
-
-{
-   "CreditCardBusiness":[
-      {
-         "title":"信用卡申請",
-         "phone":"02-xxx-xxxx"
-      },
-      {
-         "title":"帳單查詢",
-         "phone":"02-xxx-xxxx"
-      },
-      {
-         "title":"開卡服務",
-         "phone":"02-xxx-xxxx"
-      },
-      {
-         "title":"信用卡掛失",
-         "phone":"02-xxx-xxxx"
-      },
-      {
-         "title":"自扣戶申請",
-         "phone":"02-xxx-xxxx"
-      }
-   ],
-   "DepositeInterestBusiness":[
-      {
-         "title":"存戶服務",
-         "phone":"掛失服務"
-      },
-      {
-         "title":"掛失服務",
-         "phone":"02-xxx-xxxx"
-      }
-   ],
-   "InvestmentBusiness":[
-      {
-         "title":"基金服務",
-         "phone":"02-xxx-xxxx"
-      },
-      {
-         "title":"理財服務",
-         "phone":"02-xxx-xxxx"
-      }
-   ]
-}
- */

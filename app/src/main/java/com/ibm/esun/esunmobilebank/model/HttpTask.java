@@ -12,6 +12,8 @@ import java.util.concurrent.TimeUnit;
 
 public class HttpTask extends AsyncTask<String, Void, Response> {
 
+    public final static int STATUS_OK = 200;
+
     private final String TAG = HttpTask.class.getCanonicalName();
 
     public interface ICallback {
@@ -32,7 +34,7 @@ public class HttpTask extends AsyncTask<String, Void, Response> {
         okHttpClient.setReadTimeout(30, TimeUnit.SECONDS);
 
         Request request = new Request.Builder()
-                .url(aParams[0]+"1")
+                .url(aParams[0])
                 .build();
 
         Response response = null;
