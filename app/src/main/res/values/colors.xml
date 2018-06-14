@@ -10,4 +10,6 @@
     <color name="colorBackground">#a6d2ac</color>
     <color name="colorFont">#3b6e40</color>
 
+    <color name="colorNotes">#ea433a</color>
+
 </resources>

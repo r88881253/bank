@@ -8,8 +8,8 @@ public class UrlFactory {
 
     public enum Target {
 
-        GoldPassbookInfo,       // 黃金牌價
-        GetGoldRate,            // 台幣存款利率
+        GetGlodRate,       // 黃金牌價
+        GetRate,            // 台幣存款利率
         GetBusinessPhone        // 玉山e客服
 
     }
@@ -24,11 +24,11 @@ public class UrlFactory {
     public String getTargetUrl(Target target) {
         String url = "";
         switch (target) {
-            case GoldPassbookInfo:
+            case GetGlodRate:
                 url = HOST_NAME + "/api/GetGlodRate";
                 break;
 
-            case GetGoldRate:
+            case GetRate:
                 url = HOST_NAME + "/api/GetRate";
                 break;
 

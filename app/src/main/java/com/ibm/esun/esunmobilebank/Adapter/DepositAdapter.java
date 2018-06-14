@@ -8,12 +8,15 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.ibm.esun.esunmobilebank.R;
+import com.ibm.esun.esunmobilebank.model.DepositeRate;
 
-public class TWDInterestRateAdapter extends BaseAdapter {
+import java.util.List;
 
-    private String[][] ElementsData ;   //資料
+public class DepositAdapter extends BaseAdapter {
+
+//    private List<String[]> data;
+    private List<DepositeRate> data;
     private LayoutInflater inflater;    //加載layout
-    private int indentionBase;          //item缩排
 
     //優化Listview 避免重新加載
     //這邊宣告你會動到的Item元件
@@ -25,21 +28,20 @@ public class TWDInterestRateAdapter extends BaseAdapter {
     }
 
     //初始化
-    public TWDInterestRateAdapter(String[][] data, LayoutInflater inflater){
-        this.ElementsData = data;
+    public DepositAdapter(List<DepositeRate> data, LayoutInflater inflater){
+        this.data = data;
         this.inflater = inflater;
-        indentionBase = 100;
     }
 
 
     @Override
     public int getCount() {
-        return ElementsData.length;
+        return data.size();
     }
 
     @Override
     public Object getItem(int position) {
-        return  ElementsData[position];
+        return  data.get(position);
     }
 
     @Override
@@ -63,9 +65,9 @@ public class TWDInterestRateAdapter extends BaseAdapter {
             holder = (ViewHolder) convertView.getTag();
         }
 
-        holder.category.setText(ElementsData[position][0]);
-        holder.floatingRate.setText(ElementsData[position][0]);
-        holder.fixedRate.setText(ElementsData[position][2]);
+        holder.category.setText(data.get(position).getTitle());
+        holder.floatingRate.setText(data.get(position).getfRate());
+        holder.fixedRate.setText(data.get(position).getmRate());
 
         return convertView;
     }

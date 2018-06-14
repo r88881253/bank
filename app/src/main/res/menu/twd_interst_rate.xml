@@ -5,13 +5,15 @@
     <item
         android:id="@+id/menu_lending"
         app:showAsAction="always"
-        android:title="放款">
+        android:title="放款"
+        android:textColor="@color/colorToolbarText"
+        style="@style/TextAppearance.AppCompat.Widget.ActionBar.Title">
     </item>
 
-    <item
-        android:id="@+id/menu_deposit"
-        app:showAsAction="always"
-        android:title="放款">
-    </item>
+    <!--<item-->
+        <!--android:id="@+id/menu_deposit"-->
+        <!--app:showAsAction="always"-->
+        <!--android:title="存款">-->
+    <!--</item>-->
 
 </menu>
