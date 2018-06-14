@@ -49,7 +49,6 @@ public class ChatbotActivity extends AppCompatActivity {
         chatbotWebview.setWebViewClient(new MyBrowser());
         // Load the initial URL
 //        chatbotWebview.loadUrl("https://www.google.com");
-
         chatbotWebview.loadUrl("https://robot.esunbank.com.tw/index.php?eservice=ehome&qaCategory=general");
     }
 
