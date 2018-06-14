@@ -16,6 +16,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
 
+import com.ibm.esun.esunmobilebank.common.Util;
 import com.ibm.esun.esunmobilebank.model.HttpTask;
 import com.ibm.esun.esunmobilebank.model.api.UrlFactory;
 
@@ -176,14 +177,20 @@ public class CustServiceActivity extends AppCompatActivity implements HttpTask.I
     }
 
     private void getBusinessPhone() {
-        HttpTask task = new HttpTask();
-        task.setCallback(this);
-        task.execute(UrlFactory.getUrl(UrlFactory.Target.GetBusinessPhone));
+        if(Util.isNetworkAvailable(this)){
+            HttpTask task = new HttpTask();
+            task.setCallback(this);
+            task.execute(UrlFactory.getUrl(UrlFactory.Target.GetBusinessPhone));
+        }else{
+            Log.d(TAG, "Network unavaliable");
+            Util.showNetworkErrorAlert(this);
+        }
     }
 
     @Override
     public void onHttpResult(int statusCode, String jsonData) {
         //parse string to json
+        Log.d(TAG, "Status code "+String.valueOf(statusCode));
         if(statusCode == 200){
             try {
                 JSONObject obj = new JSONObject(jsonData);
@@ -205,7 +212,8 @@ public class CustServiceActivity extends AppCompatActivity implements HttpTask.I
                 Log.e(TAG, "Could not parse malformed JSON: \"" + jsonData + "\"");
             }
         }else{
-
+            Log.d(TAG, "Network return code != 200");
+            Util.showNetworkErrorAlert(this);
         }
     }
 
@@ -246,7 +254,6 @@ public class CustServiceActivity extends AppCompatActivity implements HttpTask.I
                         // do nothing
                     }
                 })
-                .setIcon(android.R.drawable.ic_dialog_alert)
                 .show();
     }
     @Override

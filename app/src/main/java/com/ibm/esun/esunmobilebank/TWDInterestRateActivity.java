@@ -104,22 +104,12 @@ public class TWDInterestRateActivity extends AppCompatActivity implements HttpTa
 
         System.out.println(Util.isNetworkAvailable(this));
 
-        if(Util.isNetworkAvailable(this)){
+        if(Util.isNetworkAvailable(this)) {
             HttpTask task = new HttpTask();
             task.setCallback(this);
             task.execute(UrlFactory.getUrl(UrlFactory.Target.GetRate));
-        }
-        else{
-            AlertDialog.Builder builder = new AlertDialog.Builder(this)
-                    .setTitle("玉山銀行")
-                    .setMessage("請確認網路狀況後，重新連線");
-            // Add the buttons
-            builder.setPositiveButton("確定", new DialogInterface.OnClickListener() {
-                public void onClick(DialogInterface dialog, int id) {
-                    // User clicked OK button
-                }
-            });
-            builder.create().show();
+        }else{
+            Util.showNetworkErrorAlert(this);
         }
     }
 
