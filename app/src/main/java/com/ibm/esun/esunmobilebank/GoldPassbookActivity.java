@@ -22,7 +22,7 @@ public class GoldPassbookActivity extends Activity implements HttpTask.ICallback
     public void doGetGoldPassbookInfo() {
         HttpTask task = new HttpTask();
         task.setCallback(this);
-        task.execute(UrlFactory.getUrl(UrlFactory.Target.GoldPassbookInfo));
+        task.execute(UrlFactory.getUrl(UrlFactory.Target.GetGoldRate));
     }
 
     @Override
