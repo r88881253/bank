@@ -52,21 +52,23 @@ public class TWDInterestRateActivity extends AppCompatActivity implements HttpTa
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_twd_deposit_interest_rate);
 
+        initToolbar();
+        initListView();
+        doGetDepositRateInfo();
+
+    }
+
+    private void initListView(){
         depositListview = (ListView) findViewById(R.id.list_view_deposit);
         lendingListview = (ListView) findViewById(R.id.list_view_lending);
 
         depositTitleBar = (LinearLayout) findViewById(R.id.deposit_title_bar);
         lendingTitleBar = (LinearLayout) findViewById(R.id.lending_title_bar);
 
-        initToolbar();
-
-        doGetDepositRateInfo();
-
         lendingListview.setVisibility(View.INVISIBLE);
         lendingTitleBar.setVisibility(View.INVISIBLE);
         depositListview.setVisibility(View.VISIBLE);
         depositTitleBar.setVisibility(View.VISIBLE);
-
     }
 
 
@@ -102,8 +104,6 @@ public class TWDInterestRateActivity extends AppCompatActivity implements HttpTa
 
     public void doGetDepositRateInfo() {
 
-        System.out.println(Util.isNetworkAvailable(this));
-
         if(Util.isNetworkAvailable(this)){
             HttpTask task = new HttpTask();
             task.setCallback(this);
@@ -127,7 +127,9 @@ public class TWDInterestRateActivity extends AppCompatActivity implements HttpTa
     public void onHttpResult(int statusCode, String jsonData) {
 
         if(statusCode != 200){
-            AlertDialog.Builder builder = new AlertDialog.Builder(this);
+            AlertDialog.Builder builder = new AlertDialog.Builder(this)
+                    .setTitle("玉山銀行")
+                    .setMessage("伺服器連線失敗，請聯絡管理人員");
             // Add the buttons
             builder.setPositiveButton("確定", new DialogInterface.OnClickListener() {
                 public void onClick(DialogInterface dialog, int id) {
