@@ -8,6 +8,7 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import com.ibm.esun.esunmobilebank.common.Util;
 import com.ibm.esun.esunmobilebank.model.GoldBean;
 import com.ibm.esun.esunmobilebank.model.HttpTask;
 import com.ibm.esun.esunmobilebank.model.api.UrlFactory;
@@ -15,7 +16,6 @@ import com.ibm.esun.esunmobilebank.model.api.UrlFactory;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-import org.w3c.dom.Text;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -47,7 +47,7 @@ public class GoldPassbookActivity extends Activity implements HttpTask.ICallback
             createPriceItem(getPriceList(jsonData));
 
         } else {
-            // TODO. show Dialog.
+            Util.showNetworkErrorAlert(this);
         }
     }
 
