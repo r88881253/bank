@@ -161,13 +161,13 @@ public class CustServiceActivity extends AppCompatActivity implements HttpTask.I
         deposit_btn2 = findViewById(R.id.deposit_btn2);
         deposit_btn1.setText(depositTel.get(0).get("title"));
         deposit_btn2.setText(depositTel.get(1).get("title"));
-        button1.setOnClickListener(new View.OnClickListener() {
+        deposit_btn1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 alertDialog(depositTel.get(0).get("title"), depositTel.get(0).get("phone"));
             }
         });
-        button2.setOnClickListener(new View.OnClickListener() {
+        deposit_btn2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 alertDialog(depositTel.get(1).get("title"), depositTel.get(1).get("phone"));
@@ -182,26 +182,30 @@ public class CustServiceActivity extends AppCompatActivity implements HttpTask.I
     }
 
     @Override
-    public void onHttpResult(String jsonData) {
+    public void onHttpResult(int statusCode, String jsonData) {
         //parse string to json
-        try {
-            JSONObject obj = new JSONObject(jsonData);
-            JSONArray creditCardTel = obj.getJSONArray("CreditCardBusiness");
-            JSONArray depositTel = obj.getJSONArray("DepositeInterestBusiness");
-            JSONArray  investmentTel = obj.getJSONArray("InvestmentBusiness");
-            this.creditCardTel = phoneJsonToArray(creditCardTel);
-            this.depositTel = phoneJsonToArray(depositTel);
-            this.investmentTel = phoneJsonToArray(investmentTel);
+        if(statusCode == 200){
+            try {
+                JSONObject obj = new JSONObject(jsonData);
+                JSONArray creditCardTel = obj.getJSONArray("CreditCardBusiness");
+                JSONArray depositTel = obj.getJSONArray("DepositeInterestBusiness");
+                JSONArray  investmentTel = obj.getJSONArray("InvestmentBusiness");
+                this.creditCardTel = phoneJsonToArray(creditCardTel);
+                this.depositTel = phoneJsonToArray(depositTel);
+                this.investmentTel = phoneJsonToArray(investmentTel);
 
-            Log.d(TAG, creditCardTel.toString());
-            Log.d(TAG, depositTel.toString());
-            Log.d(TAG, investmentTel.toString());
+                Log.d(TAG, creditCardTel.toString());
+                Log.d(TAG, depositTel.toString());
+                Log.d(TAG, investmentTel.toString());
 
-            initCreditCardNumber();
-            initInvestmentNumber();
-            initDepositNumber();
-        } catch (Throwable t) {
-            Log.e(TAG, "Could not parse malformed JSON: \"" + jsonData + "\"");
+                initCreditCardNumber();
+                initInvestmentNumber();
+                initDepositNumber();
+            } catch (Throwable t) {
+                Log.e(TAG, "Could not parse malformed JSON: \"" + jsonData + "\"");
+            }
+        }else{
+
         }
     }
 
