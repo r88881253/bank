@@ -19,6 +19,7 @@ android {
 
     testOptions {
         unitTests {
+            unitTests.returnDefaultValues = true
             includeAndroidResources = true
         }
     }
@@ -36,8 +37,6 @@ dependencies {
     androidTestImplementation 'com.android.support:support-annotations:24.0.0'
     androidTestImplementation 'com.android.support.test:runner:1.0.2'
     androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
-    implementation 'com.google.code.gson:gson:2.2.4'
-
     implementation 'com.squareup.okhttp:okhttp:2.4.0'
 
     implementation 'com.fasterxml.jackson.core:jackson-databind:2.3.2'
