@@ -8,7 +8,6 @@ import com.squareup.okhttp.Request;
 import com.squareup.okhttp.Response;
 
 import java.io.IOException;
-import java.util.concurrent.TimeUnit;
 
 public class HttpTask extends AsyncTask<String, Void, ResposeEntity> {
 
@@ -28,8 +27,6 @@ public class HttpTask extends AsyncTask<String, Void, ResposeEntity> {
     protected ResposeEntity doInBackground(String... aParams) {
 
         OkHttpClient okHttpClient = new OkHttpClient();
-        okHttpClient.setConnectTimeout(30, TimeUnit.SECONDS);
-        okHttpClient.setReadTimeout(30, TimeUnit.SECONDS);
 
         Request request = new Request.Builder()
                 .url(aParams[0])
