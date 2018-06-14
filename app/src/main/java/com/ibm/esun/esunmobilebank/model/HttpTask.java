@@ -3,18 +3,19 @@ package com.ibm.esun.esunmobilebank.model;
 import android.os.AsyncTask;
 import android.util.Log;
 
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStreamReader;
-import java.net.MalformedURLException;
-import java.net.URL;
+import com.squareup.okhttp.OkHttpClient;
+import com.squareup.okhttp.Request;
+import com.squareup.okhttp.Response;
 
-public class HttpTask extends AsyncTask<String, Void, String> {
+import java.io.IOException;
+import java.util.concurrent.TimeUnit;
+
+public class HttpTask extends AsyncTask<String, Void, Response> {
 
     private final String TAG = HttpTask.class.getCanonicalName();
 
     public interface ICallback {
-        public void onHttpResult(String jsonData);
+        public void onHttpResult(int statusCode, String jsonData);
     }
 
     private ICallback mCallback;
@@ -24,30 +25,39 @@ public class HttpTask extends AsyncTask<String, Void, String> {
     }
 
     @Override
-    protected String doInBackground(String... aParams) {
-        StringBuilder sb = new StringBuilder();
+    protected Response doInBackground(String... aParams) {
+
+        OkHttpClient okHttpClient = new OkHttpClient();
+        okHttpClient.setConnectTimeout(30, TimeUnit.SECONDS);
+        okHttpClient.setReadTimeout(30, TimeUnit.SECONDS);
+
+        Request request = new Request.Builder()
+                .url(aParams[0]+"1")
+                .build();
+
+        Response response = null;
         try {
-            URL url = new URL(aParams[0]);
-            BufferedReader in = new BufferedReader(new InputStreamReader(url.openStream()));
-            String line = in.readLine();
-            while (line != null) {
-                sb.append(line);
-                line = in.readLine();
-            }
-        } catch (MalformedURLException e) {
-            e.printStackTrace();
+            response = okHttpClient.newCall(request).execute();
         } catch (IOException e) {
             e.printStackTrace();
         }
-        return sb.toString();
+
+        return response;
     }
 
     @Override
-    protected void onPostExecute(String s) {
+    protected void onPostExecute(Response s) {
         super.onPostExecute(s);
         Log.d(TAG, "RESP = " + s);
+        
+        String body = "";
+        try {
+            body = s.body().string();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
         if(mCallback != null) {
-            mCallback.onHttpResult(s);
+            mCallback.onHttpResult(Integer.valueOf(s.code()), body);
         }
     }
 }
