@@ -111,8 +111,8 @@ public class TWDInterestRateActivity extends AppCompatActivity implements HttpTa
         }
         else{
             AlertDialog.Builder builder = new AlertDialog.Builder(this)
-                    .setTitle("系統訊息")
-                    .setMessage("請開啟網路功能");
+                    .setTitle("玉山銀行")
+                    .setMessage("請確認網路狀況後，重新連線");
             // Add the buttons
             builder.setPositiveButton("確定", new DialogInterface.OnClickListener() {
                 public void onClick(DialogInterface dialog, int id) {
@@ -201,13 +201,4 @@ public class TWDInterestRateActivity extends AppCompatActivity implements HttpTa
         lendingListview.setAdapter(lendingAdapter);
 
     }
-//
-//    //確認wifi有沒有連線
-//    protected boolean isNetworkAvailable() {
-//        ConnectivityManager connectivityManager
-//                = (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
-//        NetworkInfo activeNetworkInfo = connectivityManager.getActiveNetworkInfo();
-//        return activeNetworkInfo != null && activeNetworkInfo.isConnected();
-//    }
-
 }
