@@ -10,7 +10,7 @@ import com.squareup.okhttp.Response;
 import java.io.IOException;
 import java.util.concurrent.TimeUnit;
 
-public class HttpTask extends AsyncTask<String, Void, Response> {
+public class HttpTask extends AsyncTask<String, Void, ResposeEntity> {
 
     private final String TAG = HttpTask.class.getCanonicalName();
 
@@ -25,7 +25,7 @@ public class HttpTask extends AsyncTask<String, Void, Response> {
     }
 
     @Override
-    protected Response doInBackground(String... aParams) {
+    protected ResposeEntity doInBackground(String... aParams) {
 
         OkHttpClient okHttpClient = new OkHttpClient();
         okHttpClient.setConnectTimeout(30, TimeUnit.SECONDS);
@@ -36,28 +36,51 @@ public class HttpTask extends AsyncTask<String, Void, Response> {
                 .build();
 
         Response response = null;
+        ResposeEntity result = null;
         try {
             response = okHttpClient.newCall(request).execute();
+            result = new ResposeEntity(Integer.valueOf(response.code()), response.body().string());
         } catch (IOException e) {
             e.printStackTrace();
         }
 
-        return response;
+        return result;
     }
 
     @Override
-    protected void onPostExecute(Response s) {
+    protected void onPostExecute(ResposeEntity s) {
         super.onPostExecute(s);
         Log.d(TAG, "RESP = " + s);
         
         String body = "";
+        int statusCode = 0;
         try {
-            body = s.body().string();
-        } catch (IOException e) {
+            body = s.getBody();
+            statusCode = s.getStatusCode();
+        } catch (NullPointerException e) {
             e.printStackTrace();
         }
         if(mCallback != null) {
-            mCallback.onHttpResult(Integer.valueOf(s.code()), body);
+            mCallback.onHttpResult(statusCode, body);
         }
+    }
+
+}
+
+class ResposeEntity{
+    protected int statusCode;
+    protected String body;
+
+    public ResposeEntity(int statusCode, String body) {
+        this.statusCode = statusCode;
+        this.body = body;
+    }
+
+    public int getStatusCode() {
+        return statusCode;
+    }
+
+    public String getBody() {
+        return body;
     }
 }
