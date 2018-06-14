@@ -11,6 +11,8 @@ import java.io.IOException;
 
 public class HttpTask extends AsyncTask<String, Void, ResposeEntity> {
 
+    public final static int STATUS_OK = 200;
+
     private final String TAG = HttpTask.class.getCanonicalName();
 
     public interface ICallback {

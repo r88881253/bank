@@ -32,5 +32,9 @@
         <item name="android:paddingRight">0dip</item>
     </style>
 
+    <style name="title" >
+        <item name="android:textColor">#ffffff</item>
+        <item name="android:textStyle">bold</item>
+    </style>
 
 </resources>

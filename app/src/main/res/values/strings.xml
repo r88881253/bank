@@ -8,4 +8,14 @@
     <string name="subtitle_creditcard">信用卡業務</string>
     <string name="subtitle_deposit">存款業務</string>
     <string name="subtitle_investment">理財業務</string>
+
+    <string name="gold_passbook_wording">
+    提醒您：若查詢時間已超過本行交易時間，則以上牌價為收盤價格、實際交易價格依承作當時為準。\n
+        ● 以上牌價僅供參考，實際交易價格以當時本行成交價格為準。\n
+        ● 提領現貨應補繳差額之金額單位為新台幣。\n
+        ● 提領黃金現貨須繳付運輸費用。\n
+        ● 國際黃金價格有漲有跌，投資人投資黃金可能產生本金收益或損失，最大損失可能為投資本金全部，請自行審慎判斷投資時機並承擔投資風險。\n
+        ● 黃金存摺非屬存款故不計算利息，亦非屬存款保險條例範圍，不受存款保障保險。\n
+    </string>
+
 </resources>
