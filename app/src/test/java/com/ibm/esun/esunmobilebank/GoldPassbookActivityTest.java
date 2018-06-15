@@ -80,10 +80,10 @@ public class GoldPassbookActivityTest {
         final TextView grams250 = mActivity.findViewById(R.id.grams250);
         final TextView grams100 = mActivity.findViewById(R.id.grams100);
 
-        assertEquals(kilogram.getText().toString(), mDataList.get(0));
-        assertEquals(grams500.getText().toString(), mDataList.get(1));
-        assertEquals(grams250.getText().toString(), mDataList.get(2));
-        assertEquals(grams100.getText().toString(), mDataList.get(3));
+        assertEquals(kilogram.getText().toString(), mDataList.get(0).getDPDiff());
+        assertEquals(grams500.getText().toString(), mDataList.get(1).getDPDiff());
+        assertEquals(grams250.getText().toString(), mDataList.get(2).getDPDiff());
+        assertEquals(grams100.getText().toString(), mDataList.get(3).getDPDiff());
     }
 
     @After
