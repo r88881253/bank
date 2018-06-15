@@ -32,7 +32,11 @@ public class MainActivity extends AppCompatActivity {
 
             @Override
             public void onClick(View view) {
+
                 Intent goldPassbookPage = new Intent();
+                Bundle bundle = new Bundle();
+                bundle.putString("KEY", "TEST_STR");
+                goldPassbookPage.putExtras(bundle);
                 goldPassbookPage.setClass(MainActivity.this, GoldPassbookActivity.class);
                 startActivity(goldPassbookPage);
 
