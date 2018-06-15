@@ -104,7 +104,6 @@ public class TWDInterestRateActivity extends AppCompatActivity implements HttpTa
 
     public void doGetDepositRateInfo() {
 
-        System.out.println(Util.isNetworkAvailable(this));
         if(Util.isNetworkAvailable(this)){
             HttpTask task = new HttpTask();
             task.setCallback(this);
@@ -118,6 +117,7 @@ public class TWDInterestRateActivity extends AppCompatActivity implements HttpTa
     public void onHttpResult(int statusCode, String jsonData) {
 
         if(statusCode != 200){
+
             AlertDialog.Builder builder = new AlertDialog.Builder(this)
                     .setTitle("玉山銀行")
                     .setMessage("伺服器連線失敗，請聯絡管理人員");
@@ -127,7 +127,6 @@ public class TWDInterestRateActivity extends AppCompatActivity implements HttpTa
                     // User clicked OK button
                 }
             });
-
             AlertDialog dialog = builder.create();
             dialog.show();
 

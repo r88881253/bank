@@ -1,6 +1,5 @@
 package com.ibm.esun.esunmobilebank.model;
 
-import com.google.gson.annotations.SerializedName;
 
 import java.io.Serializable;
 
@@ -8,34 +7,24 @@ public class GoldBean implements Serializable {
 
     private static final long serialVersionUID = 7457930140883585250L;
 
-    @SerializedName("Buy")
     private String mBuy;
 
-    @SerializedName("Curcd")
     private String mCurcd;
 
-    @SerializedName("Currency")
     private String mCurrency;
 
-    @SerializedName("CurrencyText")
     private String mCurrencyText;
 
-    @SerializedName("DPDiff")
     private String mDPDiff;
 
-    @SerializedName("GoodName")
     private String mGoodName;
 
-    @SerializedName("GoodNo")
     private String mGoodNo;
 
-    @SerializedName("InfoDateTime")
     private String mInfoDateTime;
 
-    @SerializedName("Sell")
     private String mSell;
 
-    @SerializedName("SellT")
     private String mSellT;
 
     public String getBuy() {

@@ -50,7 +50,7 @@ public class CustServiceActivity extends AppCompatActivity implements HttpTask.I
     private Button fixed_btn1;
     private Button fixed_btn2;
 
-    public final String TAG = CustServiceActivity.class.getSimpleName();
+    public final static String TAG = CustServiceActivity.class.getSimpleName();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -190,6 +190,9 @@ public class CustServiceActivity extends AppCompatActivity implements HttpTask.I
     @Override
     public void onHttpResult(int statusCode, String jsonData) {
         //parse string to json
+        if(isFinishing()){
+            return;
+        }
         Log.d(TAG, "Status code "+String.valueOf(statusCode));
         if(statusCode == 200){
             try {
@@ -217,7 +220,7 @@ public class CustServiceActivity extends AppCompatActivity implements HttpTask.I
         }
     }
 
-    private ArrayList<Map<String, String>> phoneJsonToArray(JSONArray phoneJson){
+    public static ArrayList<Map<String, String>> phoneJsonToArray(JSONArray phoneJson){
         ArrayList<Map<String, String>> result = new ArrayList<Map<String,String>>();
         for(int i = 0; i < phoneJson.length(); i++){
             try {
