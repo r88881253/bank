@@ -12,7 +12,7 @@ import static android.support.test.espresso.Espresso.onView;
 import static android.support.test.espresso.action.ViewActions.click;
 import static android.support.test.espresso.matcher.ViewMatchers.withId;
 
-@Ignore("This test will be ignored")
+//@Ignore("This test will be ignored")
 @RunWith(AndroidJUnit4.class)
 public class TWDInterestRateActivityTest {
 
