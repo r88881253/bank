@@ -24,6 +24,7 @@ public class TWDInterestRateActivityTest {
 
 //        onView(withId(R.id.toolbar)).check(matches(withText("hello")));
         Thread.sleep(2000);
+
         
         onView(withId(R.id.toolbar_title)).perform(click());
 
