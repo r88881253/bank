@@ -26,6 +26,7 @@ public class TWDInterestRateActivityTest {
         Thread.sleep(2000);
 
         
+
         onView(withId(R.id.toolbar_title)).perform(click());
 
         Thread.sleep(2000);
