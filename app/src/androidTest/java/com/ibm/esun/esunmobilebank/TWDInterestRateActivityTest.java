@@ -3,7 +3,6 @@ package com.ibm.esun.esunmobilebank;
 import android.support.test.rule.ActivityTestRule;
 import android.support.test.runner.AndroidJUnit4;
 
-import org.junit.Ignore;
 import org.junit.Rule;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -25,6 +24,7 @@ public class TWDInterestRateActivityTest {
 
 //        onView(withId(R.id.toolbar)).check(matches(withText("hello")));
         Thread.sleep(2000);
+        
         onView(withId(R.id.toolbar_title)).perform(click());
 
         Thread.sleep(2000);
