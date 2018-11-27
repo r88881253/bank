@@ -54,7 +54,7 @@ public class TWDInterestRateActivity extends AppCompatActivity implements HttpTa
 
         initToolbar();
         initListView();
-        doGetDepositRateInfo();
+//        doGetDepositRateInfo();
 
     }
 
